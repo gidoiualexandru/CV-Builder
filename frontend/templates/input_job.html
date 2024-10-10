@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Description Input</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    {% include 'partials/_navbar.html' %} {% include 'partials/_sidebar.html' %}
+    <div class="container">
+      <h1>Input Job Description</h1>
+      <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Generate Resume</button>
+      </form>
+
+      <h2>Your Generated Resumes</h2>
+      <ul>
+        {% for resume in generated_resumes %}
+        <li>
+          <a href="{% url 'view_generated_resume' resume.id %}">
+            Resume for job description: {{
+            resume.job_description|truncatechars:50 }}
+          </a>
+          - Created on {{ resume.created_at }}
+        </li>
+        {% empty %}
+        <li>No resumes generated yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

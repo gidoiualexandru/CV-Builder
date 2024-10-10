@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Base CV</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <style>
+      /* Container for the Base CV */
+      .cv-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        margin: 100px auto; /* Centered with some top margin */
+      }
+
+      .cv-container h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .cv-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cv-container input,
+      .cv-container button {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      .cv-container button {
+        background-color: #ee1d52;
+        color: white;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .cv-container button:hover {
+        background-color: #d91b47;
+      }
+
+      .cv-container p {
+        color: #666;
+        margin-top: 10px;
+      }
+
+      .cv-container a {
+        color: #69c9d0;
+        text-decoration: underline;
+      }
+
+      .cv-container a:hover {
+        color: #ee1d52;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'partials/_navbar.html' %} {% include 'partials/_sidebar.html' %}
+
+    <div class="cv-container">
+      <h1>Your Base CV</h1>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Upload/Update</button>
+      </form>
+
+      {% if base_template %}
+      <p>
+        Current base template:
+        <a href="{% url 'view_base_template' %}">View Base CV</a>
+      </p>
+      {% else %}
+      <p>No base template uploaded yet.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

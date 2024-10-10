@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Generated Resume</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    {% include 'partials/_navbar.html' %} {% include 'partials/_sidebar.html' %}
+    <div class="container">
+      <h1>Generated Resume</h1>
+      <p>Job Description: {{ resume.job_description }}</p>
+      <p>Created on: {{ resume.created_at }}</p>
+      <p>Base Template: {{ resume.base_template.file.name }}</p>
+      <a href="{{ resume.generated_file.url }}" target="_blank"
+        >View Generated Resume PDF</a
+      >
+    </div>
+  </body>
+</html>

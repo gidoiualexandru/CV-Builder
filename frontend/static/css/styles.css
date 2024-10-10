@@ -1,0 +1,204 @@
+/* Background */
+body {
+    background: linear-gradient(to right, #69C9D0, #EE1D52);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form elements */
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input, textarea {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"] {
+    border: none;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Button styling */
+button {
+    background-color: #EE1D52;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #d91b47;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e293b; /* Darker color to match the design */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keep the navbar on top */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    padding: 0 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #3b3f48; /* Slight hover effect */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #3b3f48; /* Lighter color for sidebar */
+    height: calc(100vh - 60px); /* Adjust height to fit the viewport minus navbar */
+    position: fixed;
+    top: 60px; /* Starts below the navbar */
+    left: 0;
+    padding: 20px;
+    z-index: 900; /* Ensure it is below the navbar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h3 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white; /* Match the navbar */
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 0;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #e2e8f0; /* Light hover effect */
+}
+
+/* Adjust the container to account for the sidebar */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 220px; /* Leave space for the sidebar */
+    margin-top: 100px; /* Push down below the navbar */
+}
+
+/* --- New CSS Classes for Login and Base CV components --- */
+
+/* Login View */
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Error Message Styling */
+.login-container .error {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Base CV View */
+.cv-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cv-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cv-container p {
+    color: #666;
+    margin-top: 10px;
+}
+
+.cv-container a {
+    color: #69C9D0;
+    text-decoration: underline;
+}
+
+.cv-container a:hover {
+    color: #EE1D52;
+}
+
+/* Fixes & Optimizations */
+/* Ensure form inputs in both login and CV views are not stretched excessively */
+form input, form button {
+    width: 100%;
+    max-width: 100%; /* Prevent inputs from overflowing their container */
+}
+
+/* Ensure consistency in button hover effects */
+button:hover, .login-container button:hover, .cv-container button:hover {
+    background-color: #d91b47;
+    transition: background-color 0.3s ease;
+}
